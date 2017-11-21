@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.1",
-    "express": "^4.16.2"
+    "datomic": "^0.1.0",
+    "express": "^4.16.2",
+    "jsedn": "^0.4.1"
   }
 }
