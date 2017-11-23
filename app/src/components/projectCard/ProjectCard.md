@@ -1,5 +1,5 @@
 Project card example:
 
 ```js
-<ProjectCard/>
+<ProjectCard title="This is a title"/>
 ```
