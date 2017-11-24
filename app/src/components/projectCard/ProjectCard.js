@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import StatusBadge from '../StatusBadge/StatusBadge'
+import ProgressBar from '../ProgressBar/ProgressBar'
 
 const ProjectCard = styled.div`
     padding: 0 16px 0 16px;
@@ -20,9 +22,20 @@ const ProjectCard = styled.div`
    }
 `;
 
-const ProjectCardTitleWrapper = styled.div`
+const ProjectCardTopWrapper = styled.div`
+    display: flex;
     padding-top: 24px;
     width: 100%;
+`;
+
+const ProjectCardBadgeWrapper = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+    width: 50%;
+`;
+
+const ProjectCardTitleWrapper = styled.div`
+    width: 50%;
 `;
 
 const ProjectCardTitle = styled.div`
@@ -40,9 +53,15 @@ const ProjectCardSubTitle = styled.div`
 
 export default ({children, ...props}) => {
     return <ProjectCard {...props}>
-        <ProjectCardTitleWrapper>
-            <ProjectCardTitle>{props.title}</ProjectCardTitle>
-            <ProjectCardSubTitle>{props.subTitle}</ProjectCardSubTitle>
-        </ProjectCardTitleWrapper>
+        <ProjectCardTopWrapper>
+            <ProjectCardTitleWrapper>
+                <ProjectCardTitle>{props.title}</ProjectCardTitle>
+                <ProjectCardSubTitle>{props.subTitle}</ProjectCardSubTitle>
+            </ProjectCardTitleWrapper>
+            <ProjectCardBadgeWrapper>
+                <StatusBadge status={props.status}/>
+            </ProjectCardBadgeWrapper>
+        </ProjectCardTopWrapper>
+        <ProgressBar max={props.totalSprints} value={props.currentSprint}/>
     </ProjectCard>;
 };

@@ -9,31 +9,33 @@ const StatusBadge = styled.div`
         bad: "#F44336"
     }[props.status] || "#ffffff"
 }};
-    border-radius: 50%;
-    height: 35px;
-    width: 35px;
+    border-radius: 2px;
+    height: 18px;
+    width: 85px;
     position: relative;
 `;
 
-const BadgeIcon = styled.div`
+const BadgeText = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-user-select: none;
+    font-size: 8px;
+    font-weight: bold;
+    color: #ffffff;
 `;
 
 export default ({children, ...props}) => {
     return <StatusBadge {...props}>
-        <BadgeIcon>
+        <BadgeText>
             {
                 {
-                    good: <img alt="" src="../../../public/icons/ic_thumb_up_white_18px.svg"/>,
-                    soso: <img alt="" src="../../../public/icons/ic_warning_white_18px.svg"/>,
-                    bad: <img alt="" src="../../../public/icons/ic_thumb_down_white_18px.svg"/>
+                    good: "HEALTHY",
+                    soso: "NEEDS ATTENTION",
+                    bad: "DANGER"
                 }[props.status]
             }
-        </BadgeIcon>
+        </BadgeText>
     </StatusBadge>
 };
