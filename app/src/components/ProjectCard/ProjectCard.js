@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import StatusBadge from '../StatusBadge/StatusBadge'
 import ProgressBar from '../ProgressBar/ProgressBar'
+import Metrics from '../Metrics/Metrics'
 
 const ProjectCard = styled.div`
     padding: 0 16px 0 16px;
@@ -25,6 +26,12 @@ const ProjectCard = styled.div`
 const ProjectCardTopWrapper = styled.div`
     display: flex;
     padding-top: 24px;
+    width: 100%;
+`;
+
+const ProjectCardMetricsWrapper = styled.div`
+    display: flex;
+    padding: 8px 0 8px 0;
     width: 100%;
 `;
 
@@ -63,5 +70,10 @@ export default ({children, ...props}) => {
             </ProjectCardBadgeWrapper>
         </ProjectCardTopWrapper>
         <ProgressBar max={props.totalSprints} value={props.currentSprint}/>
+        <ProjectCardMetricsWrapper>
+            <Metrics title={props.metrics[0].title} value={props.metrics[0].value}/>
+            <Metrics title={props.metrics[1].title} value={props.metrics[1].value}/>
+            <Metrics title={props.metrics[2].title} value={props.metrics[2].value}/>
+        </ProjectCardMetricsWrapper>
     </ProjectCard>;
-};
+}
