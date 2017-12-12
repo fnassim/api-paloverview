@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import StatusBadge from '../StatusBadge/StatusBadge'
 import ProgressBar from '../ProgressBar/ProgressBar'
 import Metrics from '../Metrics/Metrics'
+import Remarks from '../Remarks/Remarks'
 
 const ProjectCard = styled.div`
+    margin: 10px 10px 10px 10px;
     padding: 0 16px 0 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 200ms cubic-bezier(.25,.8,.25,1);
+    transition: all 80ms;
     background: #fff;
     border-radius: 2px;
     display: flex;
@@ -17,8 +19,8 @@ const ProjectCard = styled.div`
     height: 300px;
     cursor: pointer;
     &:hover {
-        -webkit-transition: all 100ms ease-in;
-        -webkit-transform: scale(1.01);
+        -webkit-transition: all 80ms ease-in;
+        -webkit-transform: scale(1.03);
         box-shadow:  0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
    }
 `;
@@ -41,6 +43,11 @@ const ProjectCardBadgeWrapper = styled.div`
     width: 50%;
 `;
 
+const ProjectCardRemarksWrapper = styled.div`
+    padding: 16px 0 16px 0;
+    width: 100%;
+`;
+
 const ProjectCardTitleWrapper = styled.div`
     width: 50%;
 `;
@@ -59,7 +66,7 @@ const ProjectCardSubTitle = styled.div`
 `;
 
 export default ({children, ...props}) => {
-    return <ProjectCard {...props}>
+    return <ProjectCard onClick={()=> alert("ok")} {...props}>
         <ProjectCardTopWrapper>
             <ProjectCardTitleWrapper>
                 <ProjectCardTitle>{props.title}</ProjectCardTitle>
@@ -75,5 +82,8 @@ export default ({children, ...props}) => {
             <Metrics title={props.metrics[1].title} value={props.metrics[1].value}/>
             <Metrics title={props.metrics[2].title} value={props.metrics[2].value}/>
         </ProjectCardMetricsWrapper>
+        <ProjectCardRemarksWrapper>
+            <Remarks title={props.remark["title"]} content={props.remark["content"]}/>
+        </ProjectCardRemarksWrapper>
     </ProjectCard>;
 }

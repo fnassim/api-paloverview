@@ -1,14 +1,12 @@
 import {createStore} from "redux";
 import {Map} from "immutable";
 
-export const plus = (k, i) => ({type: 'plus', k, i})
-export const minus = (k, i) => ({type: 'minus', k, i})
+export const setProjectsList = (projects) => ({type: 'setProjectsList', projects});
 
 const reducer = (state = Map(), action) => {
-    const {type} = action
+    const {type} = action;
     const actions = {
-        'plus': s => s.update(action.k, (nb = 0) => nb + action.i),
-        'minus': s => s.update(action.k, (nb = 0) => nb - action.i)
+        'setProjectsList': s => s.setIn(["projects"], action.projects)
     }
     const actionFn = actions[type] || (s => s)
     return actionFn(state)
