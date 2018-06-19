@@ -66,7 +66,7 @@ const ProjectCardSubTitle = styled.div`
 `;
 
 export default ({children, ...props}) => {
-    return <ProjectCard onClick={()=> alert("ok")} {...props}>
+    return <ProjectCard onClick={()=>props.actionSetProjectOpen(props.id)} {...props}>
         <ProjectCardTopWrapper>
             <ProjectCardTitleWrapper>
                 <ProjectCardTitle>{props.title}</ProjectCardTitle>

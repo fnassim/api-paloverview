@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "immutable": "^3.8.2",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.17",
+    "react-styleguidist": "^6.0.33",
+    "redux": "^3.7.2",
+    "redux-act": "^1.5.0",
+    "redux-devtools-extension": "^2.13.2",
+    "styled-components": "^2.2.3"
+  },
+  "scripts": {
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
